@@ -18,16 +18,23 @@ function List(props) {
         setI(i + 1);
     }
 
-    const taskList = tasks.map(task => (
-        <ListItem
+    function deleteItem(id) {
+        setTasks(tasks.filter(item => item.id !== id));
+    }
+
+    const taskList = tasks.map(task => {
+        return (
+            <ListItem
             key={task.id}
+            id={task.id}
             name={task.name}
-        />
-    ));
+            deleteItem={deleteItem} />
+        );
+    });
 
     return (
         <div>
-            <ul>{taskList}</ul>
+            <div>{taskList}</div>
             <input id="newItemInput" onChange={handleChange}></input>
             <button onClick={addItem}>Add Item</button>
         </div>
