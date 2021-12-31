@@ -5,9 +5,9 @@ function ListItem(props) {
     }
 
     return (
-        <div>
-            <p>{props.name}</p>
-            <button onClick={() => deleteItem(props.id)}>Delete</button>
+        <div className="listContainer">
+            <p className="itemText">{props.name}</p>
+            <button className="deleteBtn" onClick={() => deleteItem(props.id)}>Delete</button>
         </div>
     );
 }
